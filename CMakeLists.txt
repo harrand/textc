@@ -6,6 +6,7 @@ include(text_compiler.cmake)
 add_executable(textc
 	textc/textc_main.cpp
 )
+target_compile_definitions(textc PRIVATE -D_CRT_SECURE_NO_WARNINGS)
 
 set_target_properties(textc PROPERTIES
 	CXX_STANDARD 20
@@ -20,5 +21,6 @@ set_target_properties(textc_lib PROPERTIES
 	CXX_STANDARD 20
 	CXX_STANDARD_REQUIRED ON
 	CXX_EXTENSIONS OFF)
+target_compile_definitions(textc_lib INTERFACE -D_CRT_SECURE_NO_WARNINGS)
 
 add_subdirectory(test)
